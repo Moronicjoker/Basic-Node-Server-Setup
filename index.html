@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<meta charset="utf-8">
+
+	<head>
+
+		<script type="text/javascript">
+		<!--	
+		
+			var socket;
+
+			document.addEventListener("DOMContentLoaded",function(){
+				initSocket();
+			},false);			
+		
+			function initSocket() {
+				socket = new WebSocket(document.URL.replace("http","ws"));
+	
+				socket.onopen = function(){  
+					console.log("Socket connected");
+				};
+				
+				socket.onmessage = function(msg){
+					console.log('msg.data: ',msg.data);
+				};
+			
+			};
+			
+			function sendWebsocketMessage(msg) {
+				socket.send(msg);
+			};
+
+			
+		//-->
+		</script>			
+	
+	
+	</head>
+	
+	<body>
+	
+		<button type="button" onmousedown="sendWebsocketMessage('Hi!') ">say hi</button> 		
+	
+	</body>
+	
+</html>
